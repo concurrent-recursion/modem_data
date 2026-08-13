@@ -35,7 +35,7 @@ Tasks are labeled so they can be referenced in issues, commits, and reviews. Tie
 
 ## Low / Quality and Maintenance
 
-- [ ] **[CC-023] [Bronze][Silver][Gold]** Add README documentation covering installation, supported models, configuration fields, TLS behavior, exposed entities, troubleshooting, and limitations.
+- [x] **[CC-023] [Bronze][Silver][Gold]** Add README documentation covering installation, supported models, configuration fields, TLS behavior, exposed entities, troubleshooting, and limitations.
 - [x] **[CC-024] [Bronze]** Add representative modem HTML fixtures to the repository without including credentials, public IPs, MAC addresses, serial numbers, or other identifying data.
 - [ ] **[CC-025] [Bronze]** Add schema checks to CI and verify that parser output keys, sensor paths, required fields, and schema types remain synchronized.
 - [ ] **[CC-026] [Maintenance]** Add a versioning and release checklist covering manifest version updates, migration versions, changelog entries, and backward compatibility.
@@ -63,7 +63,7 @@ The Bronze criteria from `levels.md` map to the existing tasks as follows:
 ### Additional Bronze tasks
 
 - [ ] **[CC-031] [Bronze]** Create `custom_components/modem_data/quality_scale.yaml` documenting the Bronze rules, their completion status, and any justified exemptions.
-- [ ] **[CC-032] [Bronze]** Add beginner-oriented documentation with a step-by-step Home Assistant UI setup guide, including installation location, model selection, connection fields, SSL behavior, the first connectivity check, and where the resulting entities appear.
+- [x] **[CC-032] [Bronze]** Add beginner-oriented documentation with a step-by-step Home Assistant UI setup guide, including installation location, model selection, connection fields, SSL behavior, the first connectivity check, and where the resulting entities appear.
 
 
 ## Reference Checklist
