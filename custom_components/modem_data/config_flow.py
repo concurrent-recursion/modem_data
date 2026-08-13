@@ -66,7 +66,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 errors["base"] = "cannot_connect"
             except ValidationError:
                 errors["base"] = "invalid_response"
-            except (ValueError, TypeError):
+            except ValueError, TypeError:
                 errors["base"] = "invalid_response"
             except Exception:
                 errors["base"] = "unknown"

@@ -4,8 +4,8 @@ Tasks are labeled so they can be referenced in issues, commits, and reviews. Tie
 
 ## Critical / Immediate
 
-- [ ] **[CC-001] [Bronze]** Make the Home Assistant test suite runnable in CI on a supported operating system. The current Windows environment cannot import the test harness because Home Assistant requires Unix-only `fcntl` support.
-- [ ] **[CC-002] [Bronze]** Add an end-to-end config-entry setup test covering `async_setup_entry`, the first coordinator refresh, platform forwarding, and `async_unload_entry` cleanup.
+- [x] **[CC-001] [Bronze]** Make the Home Assistant test suite runnable in CI on a supported operating system. The current Windows environment cannot import the test harness because Home Assistant requires Unix-only `fcntl` support.
+- [x] **[CC-002] [Bronze]** Add an end-to-end config-entry setup test covering `async_setup_entry`, the first coordinator refresh, platform forwarding, and `async_unload_entry` cleanup.
 - [ ] **[CC-003] [Bronze]** Add parser fixtures and tests for valid TM3402A status pages, malformed HTML, missing required values, placeholder values such as `-----`, and schema validation failures.
 - [ ] **[CC-004] [Feature]** Decide how modem event logs are exposed to Home Assistant and implement that interface. `get_modem_logs()` currently parses logs but is not called by a platform, service, event entity, or diagnostics endpoint.
 - [ ] **[CC-005] [Bronze]** Verify the component in a real Home Assistant installation using the `custom_components/modem_data` directory and confirm config flow, entity creation, reload, and removal behavior.
@@ -36,7 +36,7 @@ Tasks are labeled so they can be referenced in issues, commits, and reviews. Tie
 ## Low / Quality and Maintenance
 
 - [ ] **[CC-023] [Bronze][Silver][Gold]** Add README documentation covering installation, supported models, configuration fields, TLS behavior, exposed entities, troubleshooting, and limitations.
-- [ ] **[CC-024] [Bronze]** Add representative modem HTML fixtures to the repository without including credentials, public IPs, MAC addresses, serial numbers, or other identifying data.
+- [x] **[CC-024] [Bronze]** Add representative modem HTML fixtures to the repository without including credentials, public IPs, MAC addresses, serial numbers, or other identifying data.
 - [ ] **[CC-025] [Bronze]** Add schema checks to CI and verify that parser output keys, sensor paths, required fields, and schema types remain synchronized.
 - [ ] **[CC-026] [Maintenance]** Add a versioning and release checklist covering manifest version updates, migration versions, changelog entries, and backward compatibility.
 - [ ] **[CC-027] [Maintenance]** Review dependency usage and remove any runtime dependency that Home Assistant already provides or that is not required by the custom component.
@@ -64,3 +64,73 @@ The Bronze criteria from `levels.md` map to the existing tasks as follows:
 
 - [ ] **[CC-031] [Bronze]** Create `custom_components/modem_data/quality_scale.yaml` documenting the Bronze rules, their completion status, and any justified exemptions.
 - [ ] **[CC-032] [Bronze]** Add beginner-oriented documentation with a step-by-step Home Assistant UI setup guide, including installation location, model selection, connection fields, SSL behavior, the first connectivity check, and where the resulting entities appear.
+
+
+## Reference Checklist
+
+This is the reference checklist from Home Assistant's integration quality-scale documentation. 
+DO NOT modify this checklist other than checking or unchecking tasks.
+
+### Bronze
+- [ ] `action-setup` - Service actions are registered in async_setup
+- [ ] `appropriate-polling` - If it's a polling integration, set an appropriate polling interval
+- [ ] `brands` - Has branding assets available for the integration
+- [ ] `common-modules` - Place common patterns in common modules
+- [ ] `config-flow-test-coverage` - Full test coverage for the config flow
+- [ ] `config-flow` - Integration needs to be able to be set up via the UI
+    - [ ] Uses `data_description` to give context to fields
+    - [ ] Uses `ConfigEntry.data` and `ConfigEntry.options` correctly
+- [ ] `dependency-transparency` - Dependency transparency
+- [ ] `docs-actions` - The documentation describes the provided service actions that can be used
+- [ ] `docs-triggers` - The documentation describes the provided triggers that can be used
+- [ ] `docs-conditions` - The documentation describes the provided conditions that can be used
+- [ ] `docs-high-level-description` - The documentation includes a high-level description of the integration brand, product, or service
+- [ ] `docs-installation-instructions` - The documentation provides step-by-step installation instructions for the integration, including, if needed, prerequisites
+- [ ] `docs-removal-instructions` - The documentation provides removal instructions
+- [ ] `entity-event-setup` - Entity events are subscribed in the correct lifecycle methods
+- [ ] `entity-unique-id` - Entities have a unique ID
+- [ ] `has-entity-name` - Entities use has_entity_name = True
+- [ ] `runtime-data` - Use ConfigEntry.runtime_data to store runtime data
+- [ ] `test-before-configure` - Test a connection in the config flow
+- [ ] `test-before-setup` - Check during integration initialization if we are able to set it up correctly
+- [ ] `unique-config-entry` - Don't allow the same device or service to be able to be set up twice
+
+### Silver
+- [ ] `action-exceptions` - Service actions raise exceptions when encountering failures
+- [ ] `config-entry-unloading` - Support config entry unloading
+- [ ] `docs-configuration-parameters` - The documentation describes all integration configuration options
+- [ ] `docs-installation-parameters` - The documentation describes all integration installation parameters
+- [ ] `entity-unavailable` - Mark entity unavailable if appropriate
+- [ ] `integration-owner` - Has an integration owner
+- [ ] `log-when-unavailable` - If internet/device/service is unavailable, log once when unavailable and once when back connected
+- [ ] `parallel-updates` - Number of parallel updates is specified
+- [ ] `reauthentication-flow` - Reauthentication needs to be available via the UI
+- [ ] `test-coverage` - Above 95% test coverage for all integration modules
+
+### Gold
+- [ ] `devices` - The integration creates devices
+- [ ] `diagnostics` - Implements diagnostics
+- [ ] `discovery-update-info` - Integration uses discovery info to update network information
+- [ ] `discovery` - Devices can be discovered
+- [ ] `docs-data-update` - The documentation describes how data is updated
+- [ ] `docs-examples` - The documentation provides automation examples the user can use.
+- [ ] `docs-known-limitations` - The documentation describes known limitations of the integration (not to be confused with bugs)
+- [ ] `docs-supported-devices` - The documentation describes known supported / unsupported devices
+- [ ] `docs-supported-functions` - The documentation describes the supported functionality, including entities, and platforms
+- [ ] `docs-troubleshooting` - The documentation provides troubleshooting information
+- [ ] `docs-use-cases` - The documentation describes use cases to illustrate how this integration can be used
+- [ ] `dynamic-devices` - Devices added after integration setup
+- [ ] `entity-category` - Entities are assigned an appropriate EntityCategory
+- [ ] `entity-device-class` - Entities use device classes where possible
+- [ ] `entity-disabled-by-default` - Integration disables less popular (or noisy) entities
+- [ ] `entity-translations` - Entities have translated names
+- [ ] `exception-translations` - Exception messages are translatable
+- [ ] `icon-translations` - Entities implement icon translations
+- [ ] `reconfiguration-flow` - Integrations should have a reconfigure flow
+- [ ] `repair-issues` - Repair issues and repair flows are used when user intervention is needed
+- [ ] `stale-devices` - Stale devices are removed
+
+### Platinum
+- [ ] `async-dependency` - Dependency is async
+- [ ] `inject-websession` - The integration dependency supports passing in a websession
+- [ ] `strict-typing` - Strict typing

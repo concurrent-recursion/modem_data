@@ -21,7 +21,7 @@ def parse_firmware_time(value: str) -> str:
     """Parse an Arris firmware date into an ISO 8601 string."""
     try:
         parsed = datetime.strptime(value, "%a %b %d %H:%M:%S %Z %Y")
-    except (TypeError, ValueError):
+    except TypeError, ValueError:
         return value
     return parsed.strftime("%Y-%m-%dT%H:%M:%SZ")
 

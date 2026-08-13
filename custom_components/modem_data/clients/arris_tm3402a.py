@@ -33,7 +33,7 @@ def parse_and_format_datetime(value: str) -> tuple[datetime | None, str]:
     """Parse an Arris event timestamp into a sortable datetime and ISO string."""
     try:
         parsed = datetime.strptime(value.strip(), "%m/%d/%Y %H:%M")
-    except (AttributeError, ValueError):
+    except AttributeError, ValueError:
         return None, value
     return parsed, parsed.strftime("%Y-%m-%dT%H:%M:%SZ")
 
