@@ -1,0 +1,43 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add cable modem",
+        "description": "Select your cable modem model.",
+        "data": {
+          "model": "Modem model"
+        },
+        "data_description": {
+          "model": "Select the modem model to use for parsing status and logs."
+        }
+      },
+      "connection": {
+        "title": "Configure modem connection",
+        "description": "Review or change the connection defaults for this modem.",
+        "data": {
+          "host": "Host",
+          "scheme": "HTTP scheme",
+          "port": "Port",
+          "ignore_ssl": "Ignore SSL certificate verification"
+        },
+        "data_description": {
+          "host": "The modem's IP address or hostname.",
+          "scheme": "Use HTTP or HTTPS to connect to the modem.",
+          "port": "The TCP port used by the modem web interface.",
+          "ignore_ssl": "Enable this only when the modem uses an untrusted or self-signed certificate."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to the modem.",
+      "invalid_auth": "The modem rejected the request.",
+      "invalid_host": "Enter a valid modem hostname or IP address.",
+      "invalid_response": "The modem returned an invalid or unsupported response.",
+      "unknown": "Unexpected error while setting up the modem."
+    },
+    "abort": {
+      "already_configured": "This modem is already configured."
+    }
+  },
+  "title": "Modem Data"
+}

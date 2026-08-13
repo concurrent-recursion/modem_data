@@ -1,0 +1,10 @@
+-r requirements.txt
+# Home Assistant Core package (provides type hinting and imports in PyCharm)
+homeassistant
+
+# Official test harness for Home Assistant custom integrations
+pytest-homeassistant-custom-component
+
+# Developer tooling
+ruff
+pytest

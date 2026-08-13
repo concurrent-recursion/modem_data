@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Arris TM3402A Modem Status",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "object",
+      "properties": {
+        "system_uptime": { "type": "integer", "description": "System uptime converted to total minutes" },
+        "computers_detected": { "type": "string" },
+        "cm_status": { "type": "string" },
+        "time_and_date": { "type": "string", "format": "date-time" }
+      },
+      "required": ["system_uptime", "cm_status"]
+    },
+    "product_type": {
+      "type": "object",
+      "properties": {
+       "hardware_model": { "type": "string" },
+       "hardware_info": { "type": "string" },
+       "eth_sw_port_1": { "type": "string" },
+       "eth_sw_port_2": { "type": "string" },
+       "ethernet_phy_type": { "type": "string" },
+       "router": { "type": "string" },
+       "telemetry": { "type": "string" },
+       "line_card": { "type": "string" },
+       "num_lines": { "type": "integer" },
+       "rf_hw": { "type": "string" },
+       "market": { "type": "string" },
+       "hw_rev": { "type": "string" },
+       "vendor": { "type": "string" },
+       "bootr": { "type": "string" },
+       "sw_rev": { "type": "string" },
+       "serial_number": { "type": "string" },
+       "firmware": {
+         "type": "object",
+         "properties": {
+           "firmware_name": { "type": "string" },
+           "firmware_build_time": { "type": "string", "format": "date-time" }
+         }
+       }
+      }
+    },
+    "downstream_qam": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "channel": { "type": "string" },
+          "dcid": { "type": "integer" },
+          "freq_mhz": { "type": "number" },
+          "power_dbmv": { "type": "number" },
+          "snr_db": { "type": "number" },
+          "modulation": { "type": "string" },
+          "octets": { "type": "integer" },
+          "correcteds": { "type": "integer" },
+          "uncorrectables": { "type": "integer" }
+        },
+        "required": ["channel", "dcid", "freq_mhz", "power_dbmv", "snr_db"]
+      }
+    },
+    "downstream_ofdm": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "channel": { "type": "string" },
+          "fft_type": { "type": "string" },
+          "channel_width_mhz": { "type": "integer" },
+          "active_subcarriers": { "type": "integer" },
+          "first_active_subcarrier_mhz": { "type": "integer" },
+          "last_active_subcarrier_mhz": { "type": "integer" },
+          "avg_rxmer_pilot_db": { "type": "number" },
+          "avg_rxmer_plc_db": { "type": "number" },
+          "avg_rxmer_data_db": { "type": "number" }
+        }
+      }
+    },
+    "upstream_qam": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "channel": { "type": "string" },
+          "ucid": { "type": "integer" },
+          "freq_mhz": { "type": "number" },
+          "power_dbmv": { "type": "number" },
+          "channel_type": { "type": "string" },
+          "symbol_rate_ksym_s": { "type": "integer" },
+          "modulation": { "type": "string" }
+        },
+        "required": ["channel", "ucid", "freq_mhz", "power_dbmv"]
+      }
+    },
+    "upstream_ofdm": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "channel": { "type": "string" },
+          "fft_type": { "type": "string" },
+          "channel_width_mhz": { "type": "integer" },
+          "active_subcarriers": { "type": "integer" },
+          "first_active_subcarrier_mhz": { "type": "integer" },
+          "last_active_subcarrier_mhz": { "type": "integer" },
+          "starting_freq_mhz": { "type": "number" },
+          "ending_freq_mhz": { "type": "number" },
+          "tx_power_dbmv": { "type": "number" }
+        }
+      }
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "interface_name": { "type": "string" },
+          "provisioned": { "type": "string" },
+          "state": { "type": "string" },
+          "speed_mbps": { "type": ["integer","null"], "description": "Cast '1000 (Full)' to 1000, null if '-----'" },
+          "mac_address": { "type": "string" }
+        }
+      }
+    },
+    "diplexer": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "band": { "type": "string" },
+          "upstream_range": { "type": "string" },
+          "downstream_range": { "type": "string" },
+          "current_band_setting": { "type": "boolean", "description": "True if value is 'X', false if empty" }
+        }
+      }
+    },
+    "voip": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "line": { "type": "integer" },
+          "lc_state": { "type": "string" },
+          "callp_state": { "type": "string" },
+          "loop_current": { "type": "string" },
+          "hd_status": { "type": "string" },
+          "wb_slic": { "type": "string" },
+          "hd_enable": { "type": "string" },
+          "hd_endpnt_enable": { "type": "string" },
+          "hd_codec_provisioned": { "type": "boolean", "description": "True if 'Yes', false otherwise" }
+        }
+      }
+    }
+  }
+}
